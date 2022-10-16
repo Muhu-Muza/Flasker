@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    {% for message in get_flashed_messages() %}
+        
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
+
+        
+    {% endfor %}
+
+{% if name %}
+<h1>User Added</h1>
+<br><br>
+
+<table class="table table-hover table-bordered table-striped">
+     
+    {% for our_user in our_users %}
+    <tr>
+        <td>{{ our_user.id }}. 
+            <a href="{{ url_for('update' , id = our_user.id) }} ">{{ our_user.name }}</a>  
+            - {{our_user.email}} 
+            - {{ our_user.favorite_color }}
+            - <a href="{{ url_for('delete' , id = our_user.id) }} ">Delete</a>  
+        </td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+<br>
+{% else %}
+
+<h1>User List:</h1>
+<br>
+
+
+    <form method="POST">
+        {{ form.hidden_tag() }}
+    
+        {{ form.name.label (class="form-label ") }}
+        {{ form.name (class="form-control shadow-lg") }}
+        <br>
+    
+        {{ form.email.label (class="form-label") }}
+        {{ form.email (class="form-control shadow-lg") }}
+    
+        <br>
+
+        
+        {{ form.username.label (class="form-label ") }}
+        {{ form.username (class="form-control shadow-lg") }}
+        <br>
+
+        {{ form.favorite_color.label (class="form-label") }}
+        {{ form.favorite_color (class="form-control shadow-lg") }}
+        <br>
+
+        {{ form.password_hash.label (class="form-label") }}
+        {{ form.password_hash (class="form-control shadow-lg") }}
+        <br>
+
+        {{ form.password_hash2.label (class="form-label") }}
+        {{ form.password_hash2 (class="form-control shadow-lg") }}
+        <br>
+
+        {{ form.submit( class="btn btn-success") }}
+    </form>
+    
+    <br><br><br>
+
+ 
+    <table class="table table-hover table-bordered table-striped shadow">
+     
+        {% for our_user in our_users %}
+        <tr>
+            <td>{{ our_user.id }}. <a href="{{ url_for('update' , id = our_user.id) }}">{{ our_user.name }}</a>  | {{our_user.username}} - {{our_user.email}} -  {{ our_user.favorite_color }}
+            - <a href="{{ url_for('delete' , id = our_user.id) }} ">Delete</a>  </td>
+        </tr>
+        {% endfor %}
+    
+    </table>
+
+
+
+{% endif %}
+{% endblock %}

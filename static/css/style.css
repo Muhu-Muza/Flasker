@@ -1,0 +1,14 @@
+h1{
+    color: royalblue;
+    font-size: 40px;
+}
+
+body{
+    background: #f3f3f3;
+}
+
+#demo{
+    color: rgb(5, 128, 5);
+    font-size: 12px;
+    font-family: monospace;
+}

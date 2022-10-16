@@ -1,5 +1,14 @@
-<h1>Hello World</h1>
+{% extends 'base.html' %}
+{% block content %}
 
-<p>This is my first web app in Flask</p>
+    <h1>Hello World</h1>
 
-<p>Isn't Git amazing ?</p>
+    <p>This is my first web app in Flask</p>
+
+    <p>Isn't Git amazing ?</p>
+
+    <p id="demo"> This is it...</p>
+
+    <script src="{{ url_for ('static' , filename='js/myjs.js')}}"></script>
+
+{% endblock %}
