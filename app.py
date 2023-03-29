@@ -14,7 +14,7 @@ app = Flask(__name__)
     # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
 # NEW MYSQL db
     # app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://username:password@localhost/db_name'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:Pioneer4@localhost/users'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:password@localhost/users'
 
 # secret Key
 app.config['SECRET_KEY'] = "my secret key that no one is supposed to see"
